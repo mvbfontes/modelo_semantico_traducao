@@ -1,0 +1,62 @@
+createOrReplace
+
+	cultureInfo pt-BR
+		translations
+			model Model
+				table Customer
+					caption: Cliente
+					column Name
+						caption: Nome
+					column City
+						caption: Cidade
+					column ZipCode
+						caption: CEP
+					column Birthday
+						caption: Data de Aniversário
+					column Age
+						caption: Idade
+				table Date
+					caption: Data
+					column Date
+						caption: Data
+					column Year
+						caption: Ano
+					column 'Year Quarter'
+						caption: Trimestre do Ano
+					column Quarter
+						caption: Trimestre
+					column 'Working Day'
+						caption: Dia Útil
+				table Sales
+					caption: Vendas
+					measure Margin
+						caption: Lucro
+					measure 'Margin %'
+						caption: Lucro %
+					measure 'Sales Amount'
+						caption: Valor da Venda
+					measure 'Total Cost'
+						caption: Custo Total
+					measure 'Total Quantity'
+						caption: Quantidade Total
+				table Store
+					caption: Loja
+					column 'Store Code'
+						caption: Código da Loja
+					column Name
+						caption: Nome
+					column 'Square Meters'
+						caption: Metros Quadrados
+					column 'Open Date'
+						caption: Data de Abertura
+					column 'Close Date'
+						caption: Data de Fechamento
+				table Product
+					caption: Produto
+					column 'Product Code'
+						caption: Código do Produto
+					column Manufacturer
+						caption: Fabricante
+					column Brand
+						caption: Marca
+

@@ -1,0 +1,228 @@
+createOrReplace
+
+	perspective 'Contoso PT-BR'
+
+		perspectiveTable Sales
+			includeAll
+
+		perspectiveTable Customer
+
+			perspectiveColumn CustomerKey
+
+			perspectiveColumn Gênero
+
+			perspectiveColumn Name
+
+			perspectiveColumn City
+
+			perspectiveColumn Estado
+
+			perspectiveColumn País
+
+			perspectiveColumn Continente
+
+			perspectiveColumn ZipCode
+
+			perspectiveColumn Birthday
+
+			perspectiveColumn Age
+
+			perspectiveColumn Ocupação
+
+		perspectiveTable Date
+
+			perspectiveColumn Date
+
+			perspectiveColumn Year
+
+			perspectiveColumn 'Year Quarter'
+
+			perspectiveColumn 'Year Quarter Number'
+
+			perspectiveColumn Quarter
+
+			perspectiveColumn 'Ano Mês'
+
+			perspectiveColumn 'Ano Mês Reduzido'
+
+			perspectiveColumn 'Year Month Number'
+
+			perspectiveColumn Mês
+
+			perspectiveColumn 'Mês Reduzido'
+
+			perspectiveColumn 'Month Number'
+
+			perspectiveColumn 'Dia da Semana'
+
+			perspectiveColumn 'Dia da Semana Reduzido'
+
+			perspectiveColumn 'Day of Week Number'
+
+			perspectiveColumn 'Working Day'
+
+			perspectiveColumn 'Working Day Number'
+
+		perspectiveTable Product
+
+			perspectiveColumn ProductKey
+
+			perspectiveColumn 'Product Code'
+
+			perspectiveColumn 'Nome Produto'
+
+			perspectiveColumn Manufacturer
+
+			perspectiveColumn Brand
+
+			perspectiveColumn Cor
+
+			perspectiveColumn 'Unidade de Peso'
+
+			perspectiveColumn Weight
+
+			perspectiveColumn 'Unit Cost'
+
+			perspectiveColumn 'Unit Price'
+
+			perspectiveColumn 'Subcategory Code'
+
+			perspectiveColumn Subcategoria
+
+			perspectiveColumn 'Category Code'
+
+			perspectiveColumn Categoria
+
+		perspectiveTable Store
+
+			perspectiveColumn StoreKey
+
+			perspectiveColumn 'Store Code'
+
+			perspectiveColumn País
+
+			perspectiveColumn Estado
+
+			perspectiveColumn Name
+
+			perspectiveColumn 'Square Meters'
+
+			perspectiveColumn 'Open Date'
+
+			perspectiveColumn 'Close Date'
+
+			perspectiveColumn Situação
+
+	perspective 'Contoso EN-US'
+
+		perspectiveTable Sales
+			includeAll
+
+		perspectiveTable Customer
+
+			perspectiveColumn CustomerKey
+
+			perspectiveColumn Gender
+
+			perspectiveColumn Name
+
+			perspectiveColumn City
+
+			perspectiveColumn State
+
+			perspectiveColumn Country
+
+			perspectiveColumn Continent
+
+			perspectiveColumn ZipCode
+
+			perspectiveColumn Birthday
+
+			perspectiveColumn Age
+
+			perspectiveColumn Occupation
+
+		perspectiveTable Date
+
+			perspectiveColumn Date
+
+			perspectiveColumn Year
+
+			perspectiveColumn 'Year Quarter'
+
+			perspectiveColumn 'Year Quarter Number'
+
+			perspectiveColumn Quarter
+
+			perspectiveColumn 'Year Month'
+
+			perspectiveColumn 'Year Month Short'
+
+			perspectiveColumn 'Year Month Number'
+
+			perspectiveColumn Month
+
+			perspectiveColumn 'Month Short'
+
+			perspectiveColumn 'Month Number'
+
+			perspectiveColumn 'Day of Week'
+
+			perspectiveColumn 'Day of Week Short'
+
+			perspectiveColumn 'Day of Week Number'
+
+			perspectiveColumn 'Working Day'
+
+			perspectiveColumn 'Working Day Number'
+
+		perspectiveTable Product
+
+			perspectiveColumn ProductKey
+
+			perspectiveColumn 'Product Code'
+
+			perspectiveColumn 'Product Name'
+
+			perspectiveColumn Manufacturer
+
+			perspectiveColumn Brand
+
+			perspectiveColumn Color
+
+			perspectiveColumn 'Weight Unit Measure'
+
+			perspectiveColumn Weight
+
+			perspectiveColumn 'Unit Cost'
+
+			perspectiveColumn 'Unit Price'
+
+			perspectiveColumn 'Subcategory Code'
+
+			perspectiveColumn Subcategory
+
+			perspectiveColumn 'Category Code'
+
+			perspectiveColumn Category
+
+		perspectiveTable Store
+
+			perspectiveColumn StoreKey
+
+			perspectiveColumn 'Store Code'
+
+			perspectiveColumn Country
+
+			perspectiveColumn State
+
+			perspectiveColumn Name
+
+			perspectiveColumn 'Square Meters'
+
+			perspectiveColumn 'Open Date'
+
+			perspectiveColumn 'Close Date'
+
+			perspectiveColumn Status
+
