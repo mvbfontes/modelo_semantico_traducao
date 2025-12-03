@@ -1,0 +1,7 @@
+No TMDL view, clicar em "substituir";
+
+Colar a seguinte expressão regular:
+
+lineageTag: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}
+
+Clicar no botão "*." ao lado do "Find" para habilitar busca.

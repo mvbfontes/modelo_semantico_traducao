@@ -1,0 +1,1411 @@
+createOrReplace
+
+	model Model
+		culture: en-US
+		defaultPowerBIDataSourceVersion: powerBI_V3
+		sourceQueryCulture: pt-BR
+		dataAccessOptions
+			legacyRedirects
+			returnErrorValuesAsNull
+
+		table Customer
+			
+
+			column CustomerKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: CustomerKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column Gender
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Gender
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Name
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Name
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Address
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: Address
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column City
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: City
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'State Code'
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: State Code
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column State
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: State
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column ZipCode
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: ZipCode
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Country Code'
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: Country Code
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Continent
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Continent
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Birthday
+				dataType: dateTime
+				isHidden
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Birthday
+
+				changedProperty = FormatString
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column Age
+				dataType: int64
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Age
+
+				annotation SummarizationSetBy = Automatic
+
+			column Occupation
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Occupation
+
+				annotation SummarizationSetBy = Automatic
+
+			column Gênero
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Gênero
+
+				annotation SummarizationSetBy = Automatic
+
+			column Estado
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Estado
+
+				annotation SummarizationSetBy = Automatic
+
+			column País
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: País
+
+				annotation SummarizationSetBy = Automatic
+
+			column Continente
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Continente
+
+				annotation SummarizationSetBy = Automatic
+
+			column Ocupação
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Ocupação
+
+				annotation SummarizationSetBy = Automatic
+
+			column Country
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Country
+
+				annotation SummarizationSetBy = Automatic
+
+			partition Customer = m
+				mode: import
+				source = 
+						let
+							Fonte = Sql.Database(servidor, bancodedados),
+							dbo_gold_customer = Fonte{[Schema = "dbo", Item = "gold_customer"]}[Data]
+						in
+							dbo_gold_customer
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Table
+
+		table Date
+			
+			dataCategory: Time
+
+			column Date
+				dataType: dateTime
+				isKey
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Date
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column Year
+				dataType: int64
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Year
+
+				annotation SummarizationSetBy = User
+
+			column 'Year Quarter'
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: Year Quarter
+				sortByColumn: 'Year Quarter Number'
+
+				changedProperty = SortByColumn
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Year Quarter Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Year Quarter Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column Quarter
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Quarter
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Year Month'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Year Month
+				sortByColumn: 'Year Month Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Year Month Short'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Year Month Short
+				sortByColumn: 'Year Month Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Year Month Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Year Month Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column Month
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Month
+				sortByColumn: 'Month Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Month Short'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Month Short
+				sortByColumn: 'Month Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Month Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Month Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Day of Week'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Day of Week
+				sortByColumn: 'Day of Week Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Day of Week Short'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Day of Week Short
+				sortByColumn: 'Day of Week Number'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Day of Week Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Day of Week Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Working Day'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Working Day
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Working Day Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Working Day Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Ano Mês'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Ano Mês
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Ano Mês Reduzido'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Ano Mês Reduzido
+
+				annotation SummarizationSetBy = Automatic
+
+			column Mês
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Mês
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Mês Reduzido'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Mês Reduzido
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Dia da Semana'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Dia da Semana
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Dia da Semana Reduzido'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Dia da Semana Reduzido
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'End of Month' = EOMONTH( 'Date'[Date], 0)
+				formatString: mmmm yyyy
+				
+				summarizeBy: none
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			partition Date = m
+				mode: import
+				source = 
+						let
+							Fonte = Sql.Database(servidor, bancodedados), dbo_gold_date = Fonte{[Schema = "dbo", Item = "gold_date"]}[Data]
+						in
+							dbo_gold_date
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Table
+
+		table Sales
+			
+
+			measure Margin = [Sales Amount] - [Total Cost]
+				formatString: #,0.00
+				
+
+				changedProperty = FormatString
+
+			measure 'Margin %' = DIVIDE ( [Margin], [Sales Amount] )
+				formatString: 0.00%;-0.00%;0.00%
+				
+
+				changedProperty = FormatString
+
+			measure 'Sales Amount' = SUMX ( Sales, Sales[Quantity] * Sales[Net Price] )
+				formatString: #,0.00
+				
+
+				changedProperty = FormatString
+
+			measure 'Total Cost' = SUMX ( Sales, Sales[Quantity] * Sales[Unit Cost] )
+				formatString: #,0.00
+				
+
+				changedProperty = FormatString
+
+			measure 'Total Quantity' = SUM ( Sales[Quantity] )
+				formatString: #,0
+				
+
+				changedProperty = FormatString
+
+			column 'Order Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Order Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Line Number'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Line Number
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Order Date'
+				dataType: dateTime
+				isHidden
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Order Date
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column 'Delivery Date'
+				dataType: dateTime
+				isHidden
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Delivery Date
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column CustomerKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: CustomerKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column StoreKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: StoreKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column ProductKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: ProductKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column Quantity
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Quantity
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+			column 'Unit Price'
+				dataType: double
+				isHidden
+				formatString: #,0.00
+				
+				summarizeBy: none
+				sourceColumn: Unit Price
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = User
+
+			column 'Net Price'
+				dataType: double
+				isHidden
+				formatString: #,0.00
+				
+				summarizeBy: none
+				sourceColumn: Net Price
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = User
+
+			column 'Unit Cost'
+				dataType: double
+				isHidden
+				formatString: #,0.00
+				
+				summarizeBy: none
+				sourceColumn: Unit Cost
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = User
+
+			column 'Currency Code'
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: Currency Code
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column ExchangeRate
+				dataType: double
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: ExchangeRate
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = User
+
+				annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+			partition Sales = m
+				mode: import
+				source = 
+						let
+							Fonte = Sql.Database(servidor, bancodedados), dbo_gold_sales = Fonte{[Schema = "dbo", Item = "gold_sales"]}[Data]
+						in
+							dbo_gold_sales
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Table
+
+		table Store
+			
+
+			column StoreKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: StoreKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Store Code'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Store Code
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column Country
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Country
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column State
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: State
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Name
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Name
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Square Meters'
+				dataType: int64
+				formatString: #,0
+				
+				summarizeBy: none
+				sourceColumn: Square Meters
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Open Date'
+				dataType: dateTime
+				isHidden
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Open Date
+
+				changedProperty = FormatString
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column 'Close Date'
+				dataType: dateTime
+				isHidden
+				formatString: mm/dd/yyyy
+				
+				summarizeBy: none
+				sourceColumn: Close Date
+
+				changedProperty = FormatString
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation UnderlyingDateTimeDataType = Date
+
+				annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+			column Status
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Status
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column País
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: País
+
+				annotation SummarizationSetBy = Automatic
+
+			column Estado
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Estado
+
+				annotation SummarizationSetBy = Automatic
+
+			column Situação
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Situação
+
+				annotation SummarizationSetBy = Automatic
+
+			partition Store = m
+				mode: import
+				source = 
+						let
+							Fonte = Sql.Database(servidor, bancodedados), dbo_gold_store = Fonte{[Schema = "dbo", Item = "gold_store"]}[Data]
+						in
+							dbo_gold_store
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Table
+
+		table Product
+			
+
+			column ProductKey
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: ProductKey
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Product Code'
+				dataType: int64
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Product Code
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Product Name'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Product Name
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Manufacturer
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Manufacturer
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Brand
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Brand
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Color
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Color
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Weight Unit Measure'
+				dataType: string
+				isHidden
+				
+				summarizeBy: none
+				sourceColumn: Weight Unit Measure
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column Weight
+				dataType: double
+				isHidden
+				formatString: #,0.00
+				
+				summarizeBy: none
+				sourceColumn: Weight
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Unit Cost'
+				dataType: double
+				isHidden
+				formatString: 0.00
+				
+				summarizeBy: none
+				sourceColumn: Unit Cost
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Unit Price'
+				dataType: double
+				isHidden
+				formatString: 0.00
+				
+				summarizeBy: none
+				sourceColumn: Unit Price
+
+				changedProperty = IsHidden
+
+				changedProperty = FormatString
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Category Code'
+				dataType: int64
+				isHidden
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: Category Code
+
+				changedProperty = IsHidden
+
+				annotation SummarizationSetBy = Automatic
+
+			column Category
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Category
+				sortByColumn: 'Category Code'
+
+				changedProperty = SortByColumn
+
+				annotation SummarizationSetBy = Automatic
+
+				annotation PBI_FormatHint = {"isText":true}
+
+			column 'Nome Produto'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Nome Produto
+
+				annotation SummarizationSetBy = Automatic
+
+			column Cor
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Cor
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'Unidade de Peso'
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Unidade de Peso
+
+				annotation SummarizationSetBy = Automatic
+
+			column Subcategoria
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Subcategoria
+
+				annotation SummarizationSetBy = Automatic
+
+			column Categoria
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: Categoria
+
+				annotation SummarizationSetBy = Automatic
+
+			column 'SubCategory Code'
+				dataType: int64
+				formatString: 0
+				
+				summarizeBy: none
+				sourceColumn: SubCategory Code
+
+				annotation SummarizationSetBy = Automatic
+
+			column SubCategory
+				dataType: string
+				
+				summarizeBy: none
+				sourceColumn: SubCategory
+
+				annotation SummarizationSetBy = Automatic
+
+			partition Product = m
+				mode: import
+				source = 
+						let
+							Fonte = Sql.Database(servidor, bancodedados), dbo_gold_product = Fonte{
+								[Schema = "dbo", Item = "gold_product"]
+							}[Data]
+						in
+							dbo_gold_product
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Table
+
+		relationship AutoDetected_b0a74663-7cf9-4496-af87-27b4d8e9c56f
+			fromColumn: Sales.CustomerKey
+			toColumn: Customer.CustomerKey
+
+		relationship AutoDetected_4fdc180b-c263-4445-b27b-3b60dac342de
+			fromColumn: Sales.StoreKey
+			toColumn: Store.StoreKey
+
+		relationship AutoDetected_fe43e4ca-3436-4cda-944a-d60de768a61d
+			fromColumn: Sales.ProductKey
+			toColumn: Product.ProductKey
+
+		relationship 247db795-3476-7b4b-218a-3b0d981ebea3
+			fromColumn: Sales.'Order Date'
+			toColumn: Date.Date
+
+		perspective 'Contoso PT-BR'
+
+			perspectiveTable Sales
+				includeAll
+
+			perspectiveTable Customer
+
+				perspectiveColumn CustomerKey
+
+				perspectiveColumn Gênero
+
+				perspectiveColumn Name
+
+				perspectiveColumn City
+
+				perspectiveColumn Estado
+
+				perspectiveColumn País
+
+				perspectiveColumn Continente
+
+				perspectiveColumn ZipCode
+
+				perspectiveColumn Birthday
+
+				perspectiveColumn Age
+
+				perspectiveColumn Ocupação
+
+			perspectiveTable Date
+
+				perspectiveColumn Date
+
+				perspectiveColumn Year
+
+				perspectiveColumn 'Year Quarter'
+
+				perspectiveColumn 'Year Quarter Number'
+
+				perspectiveColumn Quarter
+
+				perspectiveColumn 'Ano Mês'
+
+				perspectiveColumn 'Ano Mês Reduzido'
+
+				perspectiveColumn 'Year Month Number'
+
+				perspectiveColumn Mês
+
+				perspectiveColumn 'Mês Reduzido'
+
+				perspectiveColumn 'Month Number'
+
+				perspectiveColumn 'Dia da Semana'
+
+				perspectiveColumn 'Dia da Semana Reduzido'
+
+				perspectiveColumn 'Day of Week Number'
+
+				perspectiveColumn 'Working Day'
+
+				perspectiveColumn 'Working Day Number'
+
+			perspectiveTable Product
+
+				perspectiveColumn ProductKey
+
+				perspectiveColumn 'Product Code'
+
+				perspectiveColumn 'Nome Produto'
+
+				perspectiveColumn Manufacturer
+
+				perspectiveColumn Brand
+
+				perspectiveColumn Cor
+
+				perspectiveColumn 'Unidade de Peso'
+
+				perspectiveColumn Weight
+
+				perspectiveColumn 'Unit Cost'
+
+				perspectiveColumn 'Unit Price'
+
+				perspectiveColumn Subcategoria
+
+				perspectiveColumn 'Category Code'
+
+				perspectiveColumn Categoria
+
+			perspectiveTable Store
+
+				perspectiveColumn StoreKey
+
+				perspectiveColumn 'Store Code'
+
+				perspectiveColumn País
+
+				perspectiveColumn Estado
+
+				perspectiveColumn Name
+
+				perspectiveColumn 'Square Meters'
+
+				perspectiveColumn 'Open Date'
+
+				perspectiveColumn 'Close Date'
+
+				perspectiveColumn Situação
+
+		perspective 'Contoso EN-US'
+
+			perspectiveTable Sales
+				includeAll
+
+			perspectiveTable Customer
+
+				perspectiveColumn CustomerKey
+
+				perspectiveColumn Gender
+
+				perspectiveColumn Name
+
+				perspectiveColumn City
+
+				perspectiveColumn State
+
+				perspectiveColumn Country
+
+				perspectiveColumn Continent
+
+				perspectiveColumn ZipCode
+
+				perspectiveColumn Birthday
+
+				perspectiveColumn Age
+
+				perspectiveColumn Occupation
+
+			perspectiveTable Date
+
+				perspectiveColumn Date
+
+				perspectiveColumn Year
+
+				perspectiveColumn 'Year Quarter'
+
+				perspectiveColumn 'Year Quarter Number'
+
+				perspectiveColumn Quarter
+
+				perspectiveColumn 'Year Month'
+
+				perspectiveColumn 'Year Month Short'
+
+				perspectiveColumn 'Year Month Number'
+
+				perspectiveColumn Month
+
+				perspectiveColumn 'Month Short'
+
+				perspectiveColumn 'Month Number'
+
+				perspectiveColumn 'Day of Week'
+
+				perspectiveColumn 'Day of Week Short'
+
+				perspectiveColumn 'Day of Week Number'
+
+				perspectiveColumn 'Working Day'
+
+				perspectiveColumn 'Working Day Number'
+
+			perspectiveTable Product
+
+				perspectiveColumn ProductKey
+
+				perspectiveColumn 'Product Code'
+
+				perspectiveColumn 'Product Name'
+
+				perspectiveColumn Manufacturer
+
+				perspectiveColumn Brand
+
+				perspectiveColumn Color
+
+				perspectiveColumn 'Weight Unit Measure'
+
+				perspectiveColumn Weight
+
+				perspectiveColumn 'Unit Cost'
+
+				perspectiveColumn 'Unit Price'
+
+				perspectiveColumn 'Category Code'
+
+				perspectiveColumn Category
+
+			perspectiveTable Store
+
+				perspectiveColumn StoreKey
+
+				perspectiveColumn 'Store Code'
+
+				perspectiveColumn Country
+
+				perspectiveColumn State
+
+				perspectiveColumn Name
+
+				perspectiveColumn 'Square Meters'
+
+				perspectiveColumn 'Open Date'
+
+				perspectiveColumn 'Close Date'
+
+				perspectiveColumn Status
+
+		cultureInfo en-US
+
+			linguisticMetadata = 
+					{
+					  "Version": "1.0.0",
+					  "Language": "en-US"
+					}
+				contentType: json
+
+		cultureInfo pt-BR
+			translations
+
+				model Model
+					table Customer
+						caption: Cliente
+						column Name
+							caption: Nome
+						column City
+							caption: Cidade
+						column ZipCode
+							caption: CEP
+						column Birthday
+							caption: Data de Aniversário
+						column Age
+							caption: Idade
+					table Date
+						caption: Data
+						column Date
+							caption: Data
+						column Year
+							caption: Ano
+						column 'Year Quarter'
+							caption: Trimestre do Ano
+						column Quarter
+							caption: Trimestre
+						column 'Working Day'
+							caption: Dia Útil
+					table Sales
+						caption: Vendas
+						measure Margin
+							caption: Lucro
+						measure 'Margin %'
+							caption: Lucro %
+						measure 'Sales Amount'
+							caption: Valor da Venda
+						measure 'Total Cost'
+							caption: Custo Total
+						measure 'Total Quantity'
+							caption: Quantidade Total
+					table Store
+						caption: Loja
+						column 'Store Code'
+							caption: Código da Loja
+						column Name
+							caption: Nome
+						column 'Square Meters'
+							caption: Metros Quadrados
+						column 'Open Date'
+							caption: Data de Abertura
+						column 'Close Date'
+							caption: Data de Fechamento
+					table Product
+						caption: Produto
+						column 'Product Code'
+							caption: Código do Produto
+						column Manufacturer
+							caption: Fabricante
+						column Brand
+							caption: Marca
+
+		expression servidor = 
+				"contoso_servidor" meta [
+					IsParameterQuery = true,
+					Type = "Text",
+					IsParameterQueryRequired = false
+				]
+			
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Text
+
+		expression bancodedados = 
+				"LH_Contoso" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = false]
+			
+
+			annotation PBI_NavigationStepName = Navegação
+
+			annotation PBI_ResultType = Text
+
+		annotation __PBI_TimeIntelligenceEnabled = 0
+
+		annotation PBI_QueryOrder = ["Customer","Date","Sales","Store","Product","servidor","bancodedados"]
+
+		annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
