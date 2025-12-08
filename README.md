@@ -4,7 +4,7 @@ Scripts do Power BI e do Microsoft Fabric para traduzir modelo semântico "Conto
 
 #### Como utilizar:
 
-Assista ao vídeo para entender as etapas do processo de tradução do modelo semântico:
+Assista ao vídeo para entender as etapas do processo de tradução do modelo semântico: https://youtu.be/G4KJip6nSGQ?si=vApTpQ_Ik7VhAJjq
 
 #### Microsoft Fabric
 
